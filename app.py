@@ -11,6 +11,11 @@ model_option = st.sidebar.selectbox(
     ("AraNet", "Mazajak", "AraBERT")
 )
 
+folder_path = None
+if model_option in ["AraNet", "AraBERT"]:
+
+    folder_path = st.sidebar.text_input("Enter model's folder path")
+
 st.title("Arabic Sentiment Analysis")
 user_input = st.text_area(
     "Enter text for Sentiment Analysis:"
@@ -18,7 +23,7 @@ user_input = st.text_area(
 
 if st.button("Get Prediction"):
 
-    if user_input:
+    if user_input and (folder_path or model_option == "Mazajak"):
 
         preprocessor = preprocessingText(user_input)
 
@@ -26,13 +31,13 @@ if st.button("Get Prediction"):
 
         if model_option == "AraNet":
 
-            AraNet = AraNet("models/AraNet_model")
+            AraNet = AraNet(folder_path)
 
             prediction = AraNet.get_prediction(preprocessed_text)
 
         elif model_option == "AraBERT":
 
-            AraBERT = AraBERT("models/AraBERT_ASTD_Unbalanced")
+            AraBERT = AraBERT(folder_path)
 
             prediction = AraBERT.get_prediction(preprocessed_text)
 
