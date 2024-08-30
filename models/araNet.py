@@ -22,9 +22,10 @@ class AraNet:
 
             return f"The prediction output for {preprocessed_text} is Positive with {prediction[0][1]*100:.2f}% accuracy."
 
-        elif prediction[0][1] == 'neg':
+        elif prediction[0][0] == 'neg':
          
             return f"The prediction output for {preprocessed_text} is Negative with {prediction[0][1]*100:.2f} % accuracy."
+        
 
         else:
             raise ValueError('The model gives only binary predictions.')

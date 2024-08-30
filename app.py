@@ -2,19 +2,21 @@ import streamlit as st
 from utils.preprocess import preprocessingText
 from models.araNet import AraNet
 from models.arabert import AraBERT
-from models.mazajak import Mazajak
 
 st.sidebar.title("Select Model")
 
 model_option = st.sidebar.selectbox(
     "Choose a model to use for prediction:",
-    ("AraNet", "Mazajak", "AraBERT")
+    ("AraNet", "AraBERT")
 )
 
 folder_path = None
 if model_option in ["AraNet", "AraBERT"]:
 
     folder_path = st.sidebar.text_input("Enter model's folder path")
+    
+    if folder_path.startswith('"') and folder_path.endswith('"'):
+        folder_path = folder_path[1:-1]
 
 st.title("Arabic Sentiment Analysis")
 user_input = st.text_area(
@@ -23,7 +25,7 @@ user_input = st.text_area(
 
 if st.button("Get Prediction"):
 
-    if user_input and (folder_path or model_option == "Mazajak"):
+    if user_input and folder_path:
 
         preprocessor = preprocessingText(user_input)
 
@@ -40,10 +42,6 @@ if st.button("Get Prediction"):
             AraBERT = AraBERT(folder_path)
 
             prediction = AraBERT.get_prediction(preprocessed_text)
-
-        elif model_option == "Mazajak":
-
-            prediction = Mazajak.get_prediction(preprocessed_text)
 
         else:
             raise ValueError("No other models available.")
