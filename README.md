@@ -32,6 +32,7 @@ https://github.com/user-attachments/assets/43e2493c-8a55-455a-b73e-710c9a2f837e
 
 ## References
 [AraBERT: Transformer-based Model for Arabic Language Understanding](https://aclanthology.org/2020.osact-1.2) (Antoun et al., OSACT 2020)
+
 [Abdul-Mageed, M., Zhang, C., Hashemi, A., & Nagoudi, E. M. B. (2020). *AraNet: A Deep Learning Toolkit for Arabic Social Media*. arXiv.](https://arxiv.org/abs/1912.13072)
 
 
