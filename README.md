@@ -1,5 +1,5 @@
 # arabic-sentiment-analyzer
-Arabic Sentiment Analyzer: Integrating State-of-the-Art Pre-trained Sentiment Models (AraBERT, and AraNet) in a Single Tool. You just need to download the models from below and it will run properly on your local device!
+Arabic Sentiment Analyzer: Integrating State-of-the-Art Pre-trained Sentiment Model AraBERT, and AraNet in a Single Tool. You just need to download the models from below and it will run properly on your local device!
 
 Note: AraBERT was fine-tuned on ASTD-Unbalanced dataset and AraNet model was utilized as the authors provided.
 
